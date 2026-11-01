@@ -1,59 +1,51 @@
-# SomveerPortfolio
+# Angular Modern Smart Reactive Search Setup
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.5.
+A production-ready, highly optimized search implementation in Angular using **Reactive Forms** and **RxJS asynchronous data streams**. This repository showcases how to handle user inputs efficiently, preventing redundant API calls and unnecessary server load.
 
-## Development server
+---
+👤 **Author**
+* **Somveer Singh** - [@somveerjs](https://github.com) | [LinkedIn Profile](https://linkedin.com/in/somveer-singh-ng)
+---
 
-To start a local development server, run:
+## 🚀 Key Features
+* **Standalone Architecture:** Built using Angular's modern standalone components setup (`standalone: true`).
+* **Optimized Search Streams:** Uses `valueChanges` coupled with powerful RxJS operators to handle asynchronous user input.
+* **Debouncing Implementation:** Prevents API spamming by waiting for a user to pause typing.
+* **Duplicate Request Filter:** Avoids sending the same query twice if the text hasn't changed.
 
+## ⚙️ RxJS Operators Used
+* **`debounceTime(400)`**: Delays execution until the user stops typing for 400ms, protecting the backend from constant requests on every keystroke.
+* **`distinctUntilChanged()`**: Ensures a request is only triggered if the current search term is different from the last emitted value.
+* **`filter()`**: Discards empty spaces or strings that don't meet minimum length requirements.
+* **`map()`**: Transforms the incoming stream data (e.g., trimming whitespace) before sending it to the service layer.
+
+## 🛠️ Tech Stack & Requirements
+* **Local Machine Environment:** Angular 17
+* **Project Framework Version:** **Angular 22** (Scaffolded using `npx` to leverage the modern Angular CLI features)
+* **Language:** TypeScript
+
+## 🏃‍♂️ How to Run Locally
+
+Follow these steps to clone and run the project on your machine:
+
+### 1. Clone the repository
 ```bash
-ng serve
+git clone https://github.com/angular-reactive-search.git
+cd angular-reactive-search
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### 2. Install dependencies
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+### 3. Run the application
+Since this project uses a newer global Angular CLI version managed via `npx`, execute the application using the following command:
 ```bash
-ng generate --help
+npx ng serve -o
 ```
+*The `-o` flag will automatically open the application in your default browser at `http://localhost:4200/`.*
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+📄 **License**
+This project is open-source and available under the MIT License.
